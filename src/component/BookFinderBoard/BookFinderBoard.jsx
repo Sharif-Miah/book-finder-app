@@ -71,7 +71,6 @@ const BookFinderBoard = () => {
     },
   ];
 
-  // eslint-disable-next-line no-unused-vars
   const [bookItems, setBookItems] = useState(bookLists);
 
   const handleFavorit = (indexId) => {
@@ -91,10 +90,22 @@ const BookFinderBoard = () => {
     setBookItems([...filterd]);
   };
 
+  const handleSortValue = (sortTerm) => {
+    let sortedProducts;
+
+    switch (sortTerm) {
+      case "name_asc":
+        sortedProducts = [...bookItems].sort((a, b) =>
+          a.title.localeCompare(b.title)
+        );
+        break;
+    }
+  };
+
   return (
     <main className="my-10 lg:my-14">
       <header className="mb-8 lg:mb-10 mx-auto max-w-7xl">
-        <BookFindAction onSearch={handleSearchValue} />
+        <BookFindAction onSearch={handleSearchValue} onSort={handleSortValue} />
       </header>
 
       <BookFindList bookItems={bookItems} onFav={handleFavorit} />

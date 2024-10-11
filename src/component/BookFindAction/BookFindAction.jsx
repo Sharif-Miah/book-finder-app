@@ -1,13 +1,23 @@
 import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 
-const BookFindAction = ({ onSearch }) => {
+const BookFindAction = ({ onSearchk, onSort }) => {
   const [searchTearm, setSearchTearm] = useState("");
+  const [sortBy, setSortBy] = useState("");
 
   const hadleSearchTearm = (e) => {
     e.preventDefault();
     onSearch(searchTearm);
   };
+
+  //   Sort option start
+
+  const handleSort = (e) => {
+    const sortValue = e.target.value;
+    onSort(sortValue);
+  };
+
+  //   Sort option end
 
   return (
     <div className="mx-auto flex items-end justify-between max-md:max-w-[95%] max-md:flex-col max-md:items-start max-md:space-y-4">
@@ -49,6 +59,8 @@ const BookFindAction = ({ onSearch }) => {
           className="cursor-pointer rounded-md border px-4 py-2 text-center text-gray-600"
           name="sortBy"
           id="sortBy"
+          value={sortBy}
+          onChange={handleSort}
         >
           <option value="">Sort</option>
           <option value="name_asc">Name (A-Z)</option>
