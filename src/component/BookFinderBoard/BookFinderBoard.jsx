@@ -16,7 +16,7 @@ const BookFinderBoard = () => {
     {
       id: crypto.randomUUID(),
       img: BookImg,
-      title: "JavaScript and Jquery",
+      title: "JavaScript and React",
       autorName: "By : Jon Duckett",
       price: 62,
       isFavorit: false,
@@ -24,7 +24,7 @@ const BookFinderBoard = () => {
     {
       id: crypto.randomUUID(),
       img: BookImg,
-      title: "JavaScript and Jquery",
+      title: "Python and TypeScript",
       autorName: "By : Jon Duckett",
       price: 62,
       isFavorit: false,
@@ -32,7 +32,7 @@ const BookFinderBoard = () => {
     {
       id: crypto.randomUUID(),
       img: BookImg,
-      title: "JavaScript and Jquery",
+      title: "JavaScript and NodeJS",
       autorName: "By : Jon Duckett",
       price: 62,
       isFavorit: false,
@@ -40,7 +40,7 @@ const BookFinderBoard = () => {
     {
       id: crypto.randomUUID(),
       img: BookImg,
-      title: "JavaScript and Jquery",
+      title: "Java and Rube",
       autorName: "By : Jon Duckett",
       price: 62,
       isFavorit: false,
@@ -48,7 +48,7 @@ const BookFinderBoard = () => {
     {
       id: crypto.randomUUID(),
       img: BookImg,
-      title: "JavaScript and Jquery",
+      title: "Django and NET",
       autorName: "By : Jon Duckett",
       price: 62,
       isFavorit: false,
@@ -56,7 +56,7 @@ const BookFinderBoard = () => {
     {
       id: crypto.randomUUID(),
       img: BookImg,
-      title: "JavaScript and Jquery",
+      title: "HTML and CSS",
       autorName: "By : Jon Duckett",
       price: 62,
       isFavorit: false,
@@ -64,7 +64,7 @@ const BookFinderBoard = () => {
     {
       id: crypto.randomUUID(),
       img: BookImg,
-      title: "JavaScript and Jquery",
+      title: "Java and C++",
       autorName: "By : Jon Duckett",
       price: 62,
       isFavorit: false,
@@ -83,10 +83,18 @@ const BookFinderBoard = () => {
     setBookItems(newBookItems);
   };
 
+  const handleSearchValue = (searchText) => {
+    const filterd = bookItems.filter((bookItem) =>
+      bookItem.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+
+    setBookItems([...filterd]);
+  };
+
   return (
     <main className="my-10 lg:my-14">
       <header className="mb-8 lg:mb-10 mx-auto max-w-7xl">
-        <BookFindAction />
+        <BookFindAction onSearch={handleSearchValue} />
       </header>
 
       <BookFindList bookItems={bookItems} onFav={handleFavorit} />

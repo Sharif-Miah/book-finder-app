@@ -28,22 +28,6 @@ const SingleBook = ({ bookItem, onFav }) => {
             Add to Cart
           </button>
 
-          {/* <button
-            onClick={() => onFav(bookItem.id)}
-            className="flex min-w-[132px] items-center justify-center gap-1 rounded-md bg-[#1C4336]/[14%] py-1.5 text-[#1C4336] transition-all hover:bg-[#1C4336]/[24%] lg:py-1.5"
-          >
-            {bookItem.isFavorit ? (
-              <>
-                <FaRegHeart className="text-xl" />
-              </>
-            ) : (
-              <>
-                <FaRegHeart className="text-xl text-[#1C4336]" />
-              </>
-            )}
-            Favourite
-          </button> */}
-
           <button
             className="flex min-w-[132px] items-center justify-center gap-1 rounded-md bg-[#1C4336]/[14%] py-1.5 text-[#1C4336] transition-all hover:bg-[#1C4336]/[24%] lg:py-1.5"
             onClick={() => onFav(bookItem.id)}
